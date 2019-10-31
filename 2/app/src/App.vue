@@ -2,18 +2,21 @@
   <div id="app">
     <HelloWorld msg="Welcome to Vue world"/>
     <Message>More about that later</Message>
+    <Counter></Counter>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Message from './components/Message.vue'
+import Counter from './components/Counter.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Message
+    Message,
+    Counter
   }
 }
 </script>
