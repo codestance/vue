@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .color-red{
+            color:darkred;
+        }
+        .bg-blue{
+            background:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h1 :class="className">Hello there</h1>
+        <button :title="titleData">Hover on me</button>
+        <button :class="{'bg-blue': isLoading}" @click="toggleClass">Click Me</button>
+        <button :disabled="isDisabled" @click="disableIt">Disable Me</button>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#root",
+            data: {
+                className: "color-red",
+                titleData: "the title set through JS",
+                isLoading: false,
+                isDisabled: false
+            },
+            methods: {
+                toggleClass() {
+                    this.isLoading = true;
+                },
+                disableIt() {
+                    this.isDisabled = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
