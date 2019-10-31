@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" class="container">
+        <modal>
+            <template slot="title">Title of the modal</template>
+            Body text here - default slot.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio reprehenderit veniam aspernatur, doloribus similique explicabo sequi! Cum facere nemo id hic obcaecati animi dolor totam impedit consequuntur? Unde, necessitatibus minima!
+            <template slot="footer">
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+            </template>
+        </modal>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="main11.js"></script>
+</body>
+</html>
