@@ -1,13 +1,10 @@
 <template>
     <div >
         <b-jumbotron>
-
             <template v-slot:lead>
-                {{currentQuestion.question}}
+                {{question}}
             </template>
-
             <hr class="my-4">
-
             <b-list-group>
                 <b-list-group-item button
                 v-for="(answer,index) in answers"
@@ -49,8 +46,13 @@ export default {
         answers() {
             let answers = [...this.currentQuestion.incorrect_answers];
             answers.push(this.currentQuestion.correct_answer);
+            answers = answers.map(atob);
             return answers;
+        },
+        question: function(){
+            return atob(this.currentQuestion.question);
         }
+        // console: ()=>console
     },
     watch: {
         currentQuestion: {
@@ -60,8 +62,6 @@ export default {
                 this.answered = false
                 this.shuffleAnswers()
             }
-        //     this.selectedIndex = null;
-        //     this.shuffleAnswers();
         }
     },
     methods: {
@@ -94,7 +94,7 @@ export default {
         }
     },
     mounted() {
-        console.log(this.currentQuestion)
+        // console.log(this.currentQuestion)
     }
 }
 </script>

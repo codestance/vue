@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-nav tabs>
-            <b-nav-item disabled><b>Fancy Quiz Appp</b></b-nav-item>
+            <b-nav-item disabled><b>Science Quiz App</b></b-nav-item>
             <b-nav-item disabled>Counter: {{ numCorrect }}/{{ numTotal }}</b-nav-item>
         </b-nav>
     </div>
