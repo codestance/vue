@@ -10,7 +10,7 @@
           <QuestionBox
             v-if="questions.length"
             :currentQuestion="questions[index]"
-            :next="next"
+            :nextQuestion="nextQuestion"
             :increment="increment"
           />
         </b-col>
@@ -38,7 +38,7 @@ export default {
     }
   },
   methods: {
-    next() {
+    nextQuestion() {
       this.index++
     },
     increment(isCorrect){
@@ -49,7 +49,6 @@ export default {
     }
   },
   mounted: function(){
-    //fetch('https://opentdb.com/api.php?amount=10&category=27&type=multiple',{
     fetch('https://opentdb.com/api.php?amount=20&category=17&type=multiple&encode=base64',{
       method: 'get'
     })
