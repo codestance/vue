@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import _ from 'lodash'
+import shuffle from 'lodash.shuffle'
 export default {
     props: {
         currentQuestion: Object,
@@ -78,14 +78,14 @@ export default {
         },
         shuffleAnswers() {
             let answers = [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer];
-            this.shuffledAnswers = _.shuffle(answers)
+            this.shuffledAnswers = shuffle(answers)
             this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)
         },
         answerClass(index){
             let answerClass = ''
-            if(!this.answered && this.selectedIndex){
+            if(!this.answered && this.selectedIndex==index){
                 answerClass = 'selected'
-            }else if(this.answered && this.correctIndex){
+            }else if(this.answered && this.correctIndex==index){
                 answerClass = 'correct'
             }else if(this.answered && this.selectedIndex === index && this.correctIndex !== index){
                 answerClass = 'incorrect'
