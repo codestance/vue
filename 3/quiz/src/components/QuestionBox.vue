@@ -4,10 +4,9 @@
             <template v-slot:lead>
                 {{question}}
             </template>
-            <hr class="my-4">
             <b-list-group>
                 <b-list-group-item button
-                    v-for="(answer,index) in answers"
+                    v-for="(answer,index) in decodedAnswers"
                     :key="index"
                     @click="selectAnswer(index)"
                     :class="answerClass(index)">
@@ -36,7 +35,8 @@ export default {
     props: {
         currentQuestion: Object,
         nextQuestion: Function,
-        increment: Function
+        increment: Function,
+        total: Number
     },
     data(){
         return{
@@ -47,11 +47,10 @@ export default {
         }
     },
     computed: {
-        answers() {
-            let answers = [...this.currentQuestion.incorrect_answers];
-            answers.push(this.currentQuestion.correct_answer);
+        decodedAnswers(){
+            let answers = [...this.shuffledAnswers]
             answers = answers.map(atob);
-            return answers;
+            return answers
         },
         question: function(){
             return atob(this.currentQuestion.question);
