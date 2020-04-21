@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- {{$route.params.speacies}} -->
+        <!-- {{$route.params.species}} -->
         <!-- {{$route.params.id}} -->
         <!-- {{pet().name}} -->
        <h1>{{animal.name}}</h1>
