@@ -2,7 +2,10 @@
     <div>
         <!-- {{$route.params.speacies}} -->
         <!-- {{$route.params.id}} -->
-        {{pet().name}}
+        <!-- {{pet().name}} -->
+       <h1>{{animal.name}}</h1>
+       <p>{{animal.age}}</p>
+       <p>{{animal.breed}}</p>
     </div>
 </template>
 
@@ -21,11 +24,9 @@ export default {
       'dogs'
     ])
   },
-  methods: {
-    pet () {
-      const animals = this[this.$route.params.speacies][this.$route.params.id]
-      return animals
-    }
+  mounted () {
+    const animals = this[this.$route.params.speacies][this.$route.params.id]
+    this.animal = animals
   }
 }
 </script>
