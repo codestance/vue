@@ -6,5 +6,8 @@ export default {
     return state.pets.filter((pet) => {
       return pet.species === 'cat'
     })
+  },
+  getAllDogs: (state) => {
+    return state.dogs
   }
 }

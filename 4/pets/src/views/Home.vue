@@ -1,43 +1,53 @@
 <template>
   <div class="home">
-    <h1>Adopt a new friend</h1>
-    <h2>We have {{ animalsCount }} animals ready to adopting</h2>
-    <h3>including {{ getAllCats.length }} cats</h3>
-    <button @click="togglePetForm" class="btn-primary">Add new pet</button>
-    <b-form @submit,prevent="handleSubmit" v-if="showPetForm">
+    <b-jumbotron bg-variant="warning">
+      <template v-slot:header>Adopt a new friend</template>
+      <template v-slot:lead>
+        We have {{ animalsCount }} animals ready to adopting,
+        including {{ getAllCats.length }} cats and {{ getAllDogs.length }} dogs.
+      </template>
+      <hr class="my-4">
+      <p>If you know a pet, that needs a new family, add it here</p>
+      <b-button @click="togglePetForm" class="btn-success">Add new pet</b-button>
+      <b-row class="justify-content-center mt-3">
+        <b-col cols="8">
+          <b-form @submit,prevent="handleSubmit" v-if="showPetForm">
 
-      <b-form-group id="input-group-2" label="Pet's Name:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          type="text"
-          v-model="formData.name"
-          required
-          placeholder="Enter name"
-        ></b-form-input>
-      </b-form-group>
+            <b-form-group id="input-group-2" label="Pet's Name:" label-for="input-2">
+              <b-form-input
+                id="input-2"
+                type="text"
+                v-model="formData.name"
+                required
+                placeholder="Enter name"
+              ></b-form-input>
+            </b-form-group>
 
-      <b-form-group id="input-group-3" label="Species:" label-for="input-3">
-        <b-form-select
-          id="input-3"
-          v-model="formData.species"
-          :options="['cats', 'dogs']"
-          required
-        ></b-form-select>
-      </b-form-group>
+            <b-form-group id="input-group-3" label="Species:" label-for="input-3">
+              <b-form-select
+                id="input-3"
+                v-model="formData.species"
+                :options="['cats', 'dogs']"
+                required
+              ></b-form-select>
+            </b-form-group>
 
-      <b-form-group id="input-group-2" label="Pet's Age:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          type="number"
-          v-model="formData.age"
-          required
-          placeholder="Enter age"
-        ></b-form-input>
-      </b-form-group>
+            <b-form-group id="input-group-2" label="Pet's Age:" label-for="input-2">
+              <b-form-input
+                id="input-2"
+                type="number"
+                v-model="formData.age"
+                required
+                placeholder="Enter age"
+              ></b-form-input>
+            </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
-    </b-form>
+            <b-button type="submit" variant="primary">Submit</b-button>
+            <b-button type="reset" variant="danger">Reset</b-button>
+          </b-form>
+        </b-col>
+      </b-row>
+    </b-jumbotron>
   </div>
 </template>
 
@@ -58,7 +68,8 @@ export default {
   computed: {
     ...mapGetters([
       'animalsCount',
-      'getAllCats'
+      'getAllCats',
+      'getAllDogs'
     ])
   },
   methods: {
